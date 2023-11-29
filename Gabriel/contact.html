@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+
+            // Simple validation, you can add more advanced validation if needed
+            if (name === "" || email === "" || message === "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            // Additional validation logic can be added here
+
+            // If everything is valid, you can submit the form
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+    <title>Contact - My Personal Blog</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="My Logo">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="PT2.HTML">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Images</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="clearfix"></div>
+    </header>
+
+    <section class="contact-container">
+        <h2>Contact Me</h2>
+        <form id="contact-form" action="#" method="post" onsubmit="return validateForm()" style="max-width: 400px; margin: 0 auto;">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Type your message here" required></textarea>
+            </div>
+        
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+    
+        </form>
+    </section>
+    
+    <script>
+        // JavaScript to handle placeholder behavior
+        document.addEventListener('DOMContentLoaded', function () {
+            var formFields = document.querySelectorAll('input, textarea');
+    
+            formFields.forEach(function (field) {
+                field.addEventListener('focus', function () {
+                    this.removeAttribute('placeholder');
+                });
+    
+                field.addEventListener('blur', function () {
+                    if (!this.value) {
+                        this.setAttribute('placeholder', this.getAttribute('data-placeholder'));
+                    }
+                });
+    
+                // Save the initial placeholder text
+                field.setAttribute('data-placeholder', field.getAttribute('placeholder'));
+            });
+        });
+    </script>
+    
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <!-- Add more social media icons as needed -->
+        </div>
+        <p>&copy; 2023 My Personal Blog. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
